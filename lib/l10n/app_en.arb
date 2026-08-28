@@ -1,0 +1,75 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Rick & Morty Field Archive",
+  "@appTitle": { "description": "Application title / archive header primary line" },
+
+  "headerBrand": "RICK & MORTY",
+  "headerTitle": "FIELD ARCHIVE",
+  "headerSubtitle": "INTERDIMENSIONAL OBSERVATION DATABASE",
+  "headerStatusLabel": "ARCHIVE STATUS:",
+  "headerStatusOnline": "ONLINE",
+
+  "queryHeading": "QUERY EPISODES",
+  "queryDescription": "Enter one or more episode IDs separated by commas",
+  "queryPlaceholder": "10,28",
+  "querySubmit": "LOAD ARCHIVE",
+
+  "emptyArchiveTitle": "ARCHIVE READY",
+  "emptyArchiveDescription": "Enter one or more episode IDs to query the observed characters.",
+
+  "invalidEpisodeIdsTitle": "INVALID EPISODE IDENTIFIER",
+  "invalidEpisodeIdsDescription": "The archive only accepts numeric episode identifiers.",
+
+  "episodeNotFoundTitle": "NO EPISODE RECORD FOUND",
+  "episodeNotFoundDescription": "None of the provided episode IDs exist in the archive.",
+
+  "connectionErrorTitle": "ARCHIVE CONNECTION ERROR",
+  "connectionErrorDescription": "Could not connect to the archive. Try again in a moment.",
+
+  "retry": "RETRY",
+
+  "summaryObservedCount": "{count, plural, =1{{count} OBSERVED CHARACTER} other{{count} OBSERVED CHARACTERS}}",
+  "@summaryObservedCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "summaryEpisodes": "EPISODES: {ids}",
+  "@summaryEpisodes": {
+    "placeholders": { "ids": { "type": "String" } }
+  },
+  "summaryRetrieved": "{count, plural, =1{RETRIEVED: {count} RECORD} other{RETRIEVED: {count} RECORDS}}",
+  "@summaryRetrieved": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+
+  "detailHeading": "CHARACTER DETAILS",
+  "detailIdLabel": "ID: {id}",
+  "@detailIdLabel": {
+    "placeholders": { "id": { "type": "String" } }
+  },
+  "detailBack": "BACK",
+  "detailStatus": "STATUS",
+  "detailSpecies": "SPECIES",
+  "detailType": "TYPE",
+  "detailGender": "GENDER",
+  "detailSectionOrigin": "ORIGIN",
+  "detailSectionLocation": "LOCATION",
+  "detailSectionEpisodes": "EPISODES",
+  "detailRowName": "NAME",
+  "detailRowTotal": "TOTAL",
+  "detailValueUnknown": "—",
+
+  "emptyDetailTitle": "NO CHARACTER SELECTED",
+  "emptyDetailDescription": "Select an observed character in the archive to see its record.",
+
+  "statusAlive": "ALIVE",
+  "statusDead": "DEAD",
+  "statusUnknown": "UNKNOWN",
+
+  "genderFemale": "FEMALE",
+  "genderMale": "MALE",
+  "genderGenderless": "GENDERLESS",
+  "genderUnknown": "UNKNOWN",
+
+  "portraitFallback": "portrait / api"
+}

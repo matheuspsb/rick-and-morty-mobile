@@ -1,0 +1,62 @@
+{
+  "@@locale": "pt",
+
+  "appTitle": "Rick & Morty Field Archive",
+
+  "headerBrand": "RICK & MORTY",
+  "headerTitle": "FIELD ARCHIVE",
+  "headerSubtitle": "BANCO DE OBSERVAÇÃO INTERDIMENSIONAL",
+  "headerStatusLabel": "STATUS DO ARQUIVO:",
+  "headerStatusOnline": "ONLINE",
+
+  "queryHeading": "CONSULTAR EPISÓDIOS",
+  "queryDescription": "Digite um ou mais IDs de episódio separados por vírgula",
+  "queryPlaceholder": "10,28",
+  "querySubmit": "CARREGAR ARQUIVO",
+
+  "emptyArchiveTitle": "ARQUIVO PRONTO",
+  "emptyArchiveDescription": "Digite um ou mais IDs de episódio para consultar os personagens observados.",
+
+  "invalidEpisodeIdsTitle": "IDENTIFICADOR DE EPISÓDIO INVÁLIDO",
+  "invalidEpisodeIdsDescription": "O arquivo aceita apenas identificadores numéricos de episódio.",
+
+  "episodeNotFoundTitle": "NENHUM REGISTRO DE EPISÓDIO ENCONTRADO",
+  "episodeNotFoundDescription": "Nenhum dos IDs de episódio informados existe no arquivo.",
+
+  "connectionErrorTitle": "ERRO DE CONEXÃO COM O ARQUIVO",
+  "connectionErrorDescription": "Não foi possível conectar ao arquivo. Tente novamente em instantes.",
+
+  "retry": "TENTAR NOVAMENTE",
+
+  "summaryObservedCount": "{count, plural, =1{{count} PERSONAGEM OBSERVADO} other{{count} PERSONAGENS OBSERVADOS}}",
+  "summaryEpisodes": "EPISÓDIOS: {ids}",
+  "summaryRetrieved": "{count, plural, =1{RECUPERADO: {count} REGISTRO} other{RECUPERADOS: {count} REGISTROS}}",
+
+  "detailHeading": "DETALHES DO PERSONAGEM",
+  "detailIdLabel": "ID: {id}",
+  "detailBack": "VOLTAR",
+  "detailStatus": "STATUS",
+  "detailSpecies": "ESPÉCIE",
+  "detailType": "TIPO",
+  "detailGender": "GÊNERO",
+  "detailSectionOrigin": "ORIGEM",
+  "detailSectionLocation": "LOCALIZAÇÃO",
+  "detailSectionEpisodes": "EPISÓDIOS",
+  "detailRowName": "NOME",
+  "detailRowTotal": "TOTAL",
+  "detailValueUnknown": "—",
+
+  "emptyDetailTitle": "NENHUM PERSONAGEM SELECIONADO",
+  "emptyDetailDescription": "Selecione um personagem observado no arquivo para ver seu registro.",
+
+  "statusAlive": "VIVO",
+  "statusDead": "MORTO",
+  "statusUnknown": "DESCONHECIDO",
+
+  "genderFemale": "FEMININO",
+  "genderMale": "MASCULINO",
+  "genderGenderless": "SEM GÊNERO",
+  "genderUnknown": "DESCONHECIDO",
+
+  "portraitFallback": "retrato / api"
+}
