@@ -24,6 +24,9 @@
   "episodeNotFoundTitle": "NO EPISODE RECORD FOUND",
   "episodeNotFoundDescription": "None of the provided episode IDs exist in the archive.",
 
+  "characterNotFoundTitle": "NO CHARACTER RECORD FOUND",
+  "characterNotFoundDescription": "This character does not exist in the archive.",
+
   "connectionErrorTitle": "ARCHIVE CONNECTION ERROR",
   "connectionErrorDescription": "Could not connect to the archive. Try again in a moment.",
 

@@ -8,6 +8,8 @@ import 'package:rick_morty_mobile/features/field_archive/presentation/pages/char
 import 'package:rick_morty_mobile/features/field_archive/presentation/pages/field_archive_page.dart';
 import 'package:rick_morty_mobile/l10n/generated/app_localizations.dart';
 
+import '../../support/fixtures.dart';
+
 Future<ProviderContainer> _pumpRouter(WidgetTester tester) async {
   final container = ProviderContainer();
   addTearDown(container.dispose);
@@ -44,5 +46,20 @@ void main() {
       find.byType(CharacterDetailPage),
     );
     expect(page.characterId, 42);
+  });
+
+  testWidgets('forwards a Character passed as go extra', (tester) async {
+    final container = await _pumpRouter(tester);
+    final character = characterFixture(id: 5, name: 'Beth Smith');
+
+    container
+        .read(goRouterProvider)
+        .go(Routes.characterDetailLocation(5), extra: character);
+    await tester.pumpAndSettle();
+
+    final page = tester.widget<CharacterDetailPage>(
+      find.byType(CharacterDetailPage),
+    );
+    expect(page.character, character);
   });
 }

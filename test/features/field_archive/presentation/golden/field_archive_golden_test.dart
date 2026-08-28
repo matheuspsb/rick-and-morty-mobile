@@ -4,6 +4,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rick_morty_mobile/features/field_archive/domain/entities/character_status.dart';
+import 'package:rick_morty_mobile/features/field_archive/presentation/widgets/character_detail_view.dart';
 import 'package:rick_morty_mobile/features/field_archive/presentation/widgets/entity_card.dart';
 import 'package:rick_morty_mobile/features/field_archive/presentation/widgets/status_indicator.dart';
 
@@ -54,6 +55,24 @@ void main() {
     await expectLater(
       find.byType(Column).first,
       matchesGoldenFile('goldens/status_indicator.png'),
+    );
+  });
+
+  testWidgets('CharacterDetailView', (tester) async {
+    await tester.pumpApp(
+      Scaffold(
+        body: SizedBox(
+          width: 380,
+          height: 720,
+          child: CharacterDetailView(character: characterFixture()),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await expectLater(
+      find.byType(CharacterDetailView),
+      matchesGoldenFile('goldens/character_detail_view.png'),
     );
   });
 }

@@ -23,6 +23,9 @@
   "episodeNotFoundTitle": "NENHUM REGISTRO DE EPISÓDIO ENCONTRADO",
   "episodeNotFoundDescription": "Nenhum dos IDs de episódio informados existe no arquivo.",
 
+  "characterNotFoundTitle": "NENHUM REGISTRO DE PERSONAGEM ENCONTRADO",
+  "characterNotFoundDescription": "Este personagem não existe no arquivo.",
+
   "connectionErrorTitle": "ERRO DE CONEXÃO COM O ARQUIVO",
   "connectionErrorDescription": "Não foi possível conectar ao arquivo. Tente novamente em instantes.",
 

@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:rick_morty_mobile/core/router/routes.dart';
+import 'package:rick_morty_mobile/features/field_archive/domain/entities/character.dart';
 import 'package:rick_morty_mobile/features/field_archive/presentation/pages/character_detail_page.dart';
 import 'package:rick_morty_mobile/features/field_archive/presentation/pages/field_archive_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -21,7 +22,11 @@ GoRouter goRouter(Ref ref) {
             builder: (context, state) {
               final id = int.tryParse(state.pathParameters['id'] ?? '');
               if (id == null) return const FieldArchivePage();
-              return CharacterDetailPage(characterId: id);
+              final extra = state.extra;
+              return CharacterDetailPage(
+                characterId: id,
+                character: extra is Character ? extra : null,
+              );
             },
           ),
         ],

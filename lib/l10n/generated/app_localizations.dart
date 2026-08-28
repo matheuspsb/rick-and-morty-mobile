@@ -194,6 +194,18 @@ abstract class AppLocalizations {
   /// **'None of the provided episode IDs exist in the archive.'**
   String get episodeNotFoundDescription;
 
+  /// No description provided for @characterNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'NO CHARACTER RECORD FOUND'**
+  String get characterNotFoundTitle;
+
+  /// No description provided for @characterNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This character does not exist in the archive.'**
+  String get characterNotFoundDescription;
+
   /// No description provided for @connectionErrorTitle.
   ///
   /// In en, this message translates to:

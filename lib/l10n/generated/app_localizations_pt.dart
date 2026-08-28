@@ -62,6 +62,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'Nenhum dos IDs de episódio informados existe no arquivo.';
 
   @override
+  String get characterNotFoundTitle =>
+      'NENHUM REGISTRO DE PERSONAGEM ENCONTRADO';
+
+  @override
+  String get characterNotFoundDescription =>
+      'Este personagem não existe no arquivo.';
+
+  @override
   String get connectionErrorTitle => 'ERRO DE CONEXÃO COM O ARQUIVO';
 
   @override

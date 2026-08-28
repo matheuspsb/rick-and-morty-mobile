@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_morty_mobile/core/theme/archive_colors.dart';
 import 'package:rick_morty_mobile/features/field_archive/domain/entities/character_status.dart';
+import 'package:rick_morty_mobile/features/field_archive/presentation/l10n_labels.dart';
 import 'package:rick_morty_mobile/l10n/generated/app_localizations.dart';
 
 class StatusIndicator extends StatelessWidget {
@@ -14,11 +15,12 @@ class StatusIndicator extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final colors = context.archiveColors;
 
-    final (color, label) = switch (status) {
-      CharacterStatus.alive => (colors.statusAlive, l10n.statusAlive),
-      CharacterStatus.dead => (colors.statusDead, l10n.statusDead),
-      CharacterStatus.unknown => (colors.statusUnknown, l10n.statusUnknown),
+    final color = switch (status) {
+      CharacterStatus.alive => colors.statusAlive,
+      CharacterStatus.dead => colors.statusDead,
+      CharacterStatus.unknown => colors.statusUnknown,
     };
+    final label = statusLabel(l10n, status);
 
     return Row(
       mainAxisSize: MainAxisSize.min,

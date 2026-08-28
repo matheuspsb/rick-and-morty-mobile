@@ -62,6 +62,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'None of the provided episode IDs exist in the archive.';
 
   @override
+  String get characterNotFoundTitle => 'NO CHARACTER RECORD FOUND';
+
+  @override
+  String get characterNotFoundDescription =>
+      'This character does not exist in the archive.';
+
+  @override
   String get connectionErrorTitle => 'ARCHIVE CONNECTION ERROR';
 
   @override
