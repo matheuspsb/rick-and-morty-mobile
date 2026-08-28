@@ -18,9 +18,33 @@ Dio dio(Ref ref) {
   );
 
   if (env.isDev && !kReleaseMode) {
-    dio.interceptors.add(LogInterceptor());
+    dio.interceptors.add(_CompactLogInterceptor());
   }
 
   ref.onDispose(dio.close);
   return dio;
+}
+
+class _CompactLogInterceptor extends Interceptor {
+  @override
+  void onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) {
+    final request = response.requestOptions;
+    debugPrint(
+      '[dio] ${request.method} ${request.uri} -> ${response.statusCode}',
+    );
+    handler.next(response);
+  }
+
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) {
+    final request = err.requestOptions;
+    debugPrint(
+      '[dio] ${request.method} ${request.uri} -> '
+      '${err.response?.statusCode ?? err.type.name}',
+    );
+    handler.next(err);
+  }
 }

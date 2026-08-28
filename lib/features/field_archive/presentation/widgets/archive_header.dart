@@ -32,7 +32,13 @@ class ArchiveHeader extends StatelessWidget implements PreferredSizeWidget {
                   color: colors.muted,
                 ),
               ),
-              Text(l10n.headerTitle, style: theme.textTheme.headlineMedium),
+              Semantics(
+                header: true,
+                child: Text(
+                  l10n.headerTitle,
+                  style: theme.textTheme.headlineMedium,
+                ),
+              ),
             ],
           ),
         ),

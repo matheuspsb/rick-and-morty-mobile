@@ -52,7 +52,10 @@ class _EpisodeQueryFormState extends ConsumerState<EpisodeQueryForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(l10n.queryHeading, style: theme.textTheme.titleMedium),
+        Semantics(
+          header: true,
+          child: Text(l10n.queryHeading, style: theme.textTheme.titleMedium),
+        ),
         const SizedBox(height: 4),
         Text(
           l10n.queryDescription,
