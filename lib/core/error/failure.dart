@@ -1,6 +1,6 @@
 import 'package:rick_morty_mobile/core/network/api_exception.dart';
 
-sealed class Failure {
+sealed class Failure implements Exception {
   const Failure();
 
   factory Failure.fromApiException(ApiException exception) =>
