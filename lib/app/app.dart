@@ -1,43 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rick_morty_mobile/core/router/app_router.dart';
+import 'package:rick_morty_mobile/core/theme/archive_theme.dart';
 import 'package:rick_morty_mobile/l10n/generated/app_localizations.dart';
 
-class RickMortyApp extends StatelessWidget {
+class RickMortyApp extends ConsumerWidget {
   const RickMortyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(goRouterProvider);
+
+    return MaterialApp.router(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       debugShowCheckedModeBanner: false,
+      theme: ArchiveTheme.light,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: const Locale('pt'),
-      home: const _BootstrapPlaceholderPage(),
-    );
-  }
-}
-
-class _BootstrapPlaceholderPage extends StatelessWidget {
-  const _BootstrapPlaceholderPage();
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(l10n.headerBrand),
-            Text(
-              l10n.headerTitle,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 8),
-            Text(l10n.headerSubtitle),
-          ],
-        ),
-      ),
+      routerConfig: router,
     );
   }
 }
