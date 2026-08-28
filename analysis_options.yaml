@@ -22,3 +22,4 @@ linter:
     lines_longer_than_80_chars: false
     sort_pub_dependencies: false
     sort_unnamed_constructors_first: false
+    use_setters_to_change_properties: false
