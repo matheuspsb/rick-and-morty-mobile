@@ -53,6 +53,24 @@ em `config/dev.json` (ou crie um `config/prod.json` e use `--dart-define-from-fi
 | Só golden | `flutter test --tags golden` |
 | Atualizar golden | `flutter test --tags golden --update-goldens` |
 
+## Build
+
+```bash
+flutter build apk   --release --dart-define-from-file=config/prod.json   # APK universal
+flutter build apk   --release --split-per-abi                            # APKs por ABI (~menores)
+flutter build appbundle --release                                        # .aab p/ Play Store
+```
+
+O `build.gradle.kts` ainda assina o release com a chave de **debug** (TODO do template) —
+troque por um `signingConfig` próprio antes de distribuir. APK universal de release fica
+em torno de 50 MB (todas as ABIs); `--split-per-abi` derruba para ~20 MB cada.
+
+### Ícone do app
+
+A arte fica em `assets/icon/app_icon.png` (ver [assets/icon/README.md](assets/icon/README.md));
+`dart run flutter_launcher_icons` gera os ícones de Android/iOS/web. Fundo do ícone
+adaptativo Android = `#F4F1EA` (o papel do tema).
+
 ## Arquitetura
 
 Feature-first com Clean Architecture pragmática. Uma única feature: `field_archive`
