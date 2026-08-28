@@ -67,9 +67,10 @@ em torno de 50 MB (todas as ABIs); `--split-per-abi` derruba para ~20 MB cada.
 
 ### Ícone do app
 
-A arte fica em `assets/icon/app_icon.png` (ver [assets/icon/README.md](assets/icon/README.md));
-`dart run flutter_launcher_icons` gera os ícones de Android/iOS/web. Fundo do ícone
-adaptativo Android = `#F4F1EA` (o papel do tema).
+Arte em `assets/icon/app_icon.png` (Rick em traço de tinta, no papel do tema). Os
+ícones de Android/iOS/web/Windows já estão gerados; para refazer após trocar a arte:
+`dart run flutter_launcher_icons`. Config no `pubspec.yaml`; fundo do adaptativo
+Android = `#F4F1EA`. Detalhes em [assets/icon/README.md](assets/icon/README.md).
 
 ## Arquitetura
 
@@ -145,6 +146,7 @@ UI → Controller (AsyncNotifier) → UseCase → Repository → RemoteDataSourc
 
 ## Fontes
 
-As fontes do tema (Oswald, IBM Plex Sans/Mono) **não** estão no repositório. Veja
-[assets/fonts/README.md](assets/fonts/README.md) para baixá-las e ativar o bloco `fonts:`
-no `pubspec.yaml`. Sem elas, o app usa as fontes de fallback do sistema (não quebra).
+Oswald (display), IBM Plex Sans (texto) e IBM Plex Mono (mono) — estáticas do Google
+Fonts (OFL), versionadas em `assets/fonts/` e declaradas no `pubspec.yaml`. Os testes
+as carregam via [test/flutter_test_config.dart](test/flutter_test_config.dart) para que
+os goldens usem a tipografia real. Ver [assets/fonts/README.md](assets/fonts/README.md).

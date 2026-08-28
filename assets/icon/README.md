@@ -1,15 +1,18 @@
 # Ícone do app
 
-Coloque a arte do ícone aqui como **`app_icon.png`** — quadrado, idealmente
-**1024×1024**, com uma margem de segurança (o rosto/elemento não deve encostar
-nas bordas, porque o ícone adaptativo do Android recorta ~15% de cada lado).
+`app_icon.png` — 2048×2048, arte do Rick em traço de tinta sobre o papel do tema
+(`#F4F1EA`), com ~9% de margem de segurança para o recorte do ícone adaptativo do
+Android.
 
-Depois, gere os ícones de todas as plataformas:
+Gerado a partir de uma arte 2048×2048 (JPEG) recomposta num canvas quadrado com a
+cor de fundo do tema. Para regenerar os ícones de todas as plataformas após trocar
+`app_icon.png`:
 
 ```bash
 dart run flutter_launcher_icons
 ```
 
-Isso reescreve `android/app/src/main/res/mipmap-*`, o `AppIcon.appiconset` do iOS,
-e o `Icon-*` do web. A config está no `pubspec.yaml`, seção `flutter_launcher_icons`
-(fundo adaptativo Android = `#F4F1EA`, o papel do tema Field Archive).
+Config no `pubspec.yaml`, seção `flutter_launcher_icons` (fundo adaptativo Android
+= `#F4F1EA`). Saídas: `android/app/src/main/res/mipmap-*` + `drawable-*` +
+`mipmap-anydpi-v26/`, `ios/Runner/Assets.xcassets/AppIcon.appiconset`, `web/icons`,
+`windows/runner/resources/app_icon.ico`.
