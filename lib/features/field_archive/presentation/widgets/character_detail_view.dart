@@ -25,21 +25,12 @@ class CharacterDetailView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  l10n.detailHeading,
-                  style: theme.textTheme.titleMedium,
-                ),
-              ),
-              Text(
-                l10n.detailIdLabel(padEntityId(character.id)),
-                style: theme.textTheme.labelMedium?.copyWith(
-                  color: colors.muted,
-                ),
-              ),
-            ],
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              l10n.detailIdLabel(padEntityId(character.id)),
+              style: theme.textTheme.labelMedium?.copyWith(color: colors.muted),
+            ),
           ),
           const Divider(height: 24),
           Row(

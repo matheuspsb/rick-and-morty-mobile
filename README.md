@@ -6,6 +6,16 @@ consumindo o [rick-morty-backend](../rick-morty-backend).
 Dado um ou mais IDs de episódio, lista os personagens presentes neles (grid) e abre
 uma tela de detalhe por personagem.
 
+## Screenshots
+
+| Estado inicial | Resultados | Detalhe |
+|:---:|:---:|:---:|
+| ![Estado inicial](docs/screenshots/03-archive-empty.png) | ![Resultados](docs/screenshots/04-results.png) | ![Detalhe](docs/screenshots/05-detail.png) |
+
+| Ícone (launcher) | Splash |
+|:---:|:---:|
+| ![Ícone](docs/screenshots/01-launcher.png) | ![Splash](docs/screenshots/02-splash.png) |
+
 ## Stack
 
 - **Flutter** (canal stable) / **Dart 3**
