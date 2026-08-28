@@ -14,7 +14,7 @@ class AppEnv {
       'API_BASE_URL',
       defaultValue: _defaultBaseUrl,
     ),
-    rawFlavor: const String.fromEnvironment('APP_ENV', defaultValue: 'dev'),
+    rawFlavor: const String.fromEnvironment('APP_ENV', defaultValue: 'prod'),
   );
 
   @visibleForTesting
@@ -44,7 +44,7 @@ class AppEnv {
     return AppEnv._(apiBaseUrl: rawBaseUrl, flavor: flavor);
   }
 
-  static const _defaultBaseUrl = 'http://10.0.2.2:3000';
+  static const _defaultBaseUrl = 'https://rick-and-morty-backend-nu.vercel.app';
 
   final String apiBaseUrl;
   final AppFlavor flavor;

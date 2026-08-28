@@ -1,4 +1,4 @@
 {
-  "API_BASE_URL": "https://rick-morty-backend.example.com",
+  "API_BASE_URL": "https://rick-and-morty-backend-nu.vercel.app",
   "APP_ENV": "prod"
 }

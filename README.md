@@ -28,13 +28,17 @@ uma tela de detalhe por personagem.
 - **very_good_analysis** — lint
 - **mocktail** + `flutter_test` — testes (unit, widget, golden)
 
+> Por padrão o app aponta para o **backend publicado** (Vercel) — `flutter run` /
+> `flutter build` sem nenhum argumento já funcionam, sem subir nada localmente.
+
 ## Requisitos
 
 - Flutter stable recente (o projeto usa `dart run build_runner` sem `--delete-conflicting-outputs`)
 - **Windows:** habilitar o *Developer Mode* (`start ms-settings:developers`) — o Flutter
   precisa de symlink para os plugins
 - Um emulador Android / dispositivo, ou Chrome
-- O **rick-morty-backend rodando em `http://localhost:3000`**
+- Backend: por padrão usa o **publicado**; só precisa do `rick-morty-backend` local
+  se for rodar nos alvos `emulator` / `device` (ver abaixo)
 
 ## Rodando
 
@@ -42,13 +46,31 @@ uma tela de detalhe por personagem.
 flutter pub get
 dart run build_runner build      # gera *.g.dart / *.freezed.dart
 flutter gen-l10n                 # gera lib/l10n/generated/
-flutter run --dart-define-from-file=config/dev.json
+flutter run                      # já aponta para o backend publicado
 ```
 
-A URL da API vem de `config/dev.json` (`API_BASE_URL`). O default é
-`http://10.0.2.2:3000` — que é como o **emulador Android** enxerga o `localhost`
-da máquina host. Para device físico ou outra porta, aponte para o IP da máquina
-em `config/dev.json` (ou crie um `config/prod.json` e use `--dart-define-from-file=config/prod.json`).
+### Backend local (opcional)
+
+A `API_BASE_URL` é injetada em build time via `--dart-define`. Sem argumento, o
+default no código é o backend da Vercel. Para apontar para um backend local:
+
+```bash
+scripts/run.ps1 emulator   # Windows  — http://10.0.2.2:3000 (backend na máquina host)
+scripts/run.ps1 device     #          — http://<IP-da-máquina>:3000 (celular na mesma rede)
+scripts/run.sh  emulator   # bash/macOS/Linux
+```
+
+`scripts/run.{ps1,sh}` sem argumento = remoto. Args extras passam direto pro
+`flutter run` (ex.: `scripts/run.ps1 emulator -d chrome`).
+
+| Alvo | Config | `API_BASE_URL` |
+|---|---|---|
+| _(default)_ / `remote` | `config/prod.json` | backend na Vercel |
+| `emulator` | `config/dev.json` | `http://10.0.2.2:3000` |
+| `device` | IP detectado / `config/local-device.json` (não versionado; copie de `.example`) | `http://<lan-ip>:3000` |
+
+No VS Code: **F5** roda a config `Field Archive (remoto)`; as variantes
+`· backend local (emulador/device)` estão no dropdown de _Run and Debug_.
 
 ## Comandos
 
@@ -66,14 +88,17 @@ em `config/dev.json` (ou crie um `config/prod.json` e use `--dart-define-from-fi
 ## Build
 
 ```bash
-flutter build apk   --release --dart-define-from-file=config/prod.json   # APK universal
-flutter build apk   --release --split-per-abi                            # APKs por ABI (~menores)
-flutter build appbundle --release                                        # .aab p/ Play Store
+flutter build apk --release                     # APK universal, backend publicado (default)
+flutter build apk --release --split-per-abi      # APKs por ABI (~20 MB cada)
+flutter build appbundle --release                # .aab p/ Play Store
 ```
 
+O APK já aponta para o backend da Vercel (default no código), então instala e funciona
+sem setup. Para fixar `APP_ENV=prod`, adicione `--dart-define-from-file=config/prod.json`.
+
 O `build.gradle.kts` ainda assina o release com a chave de **debug** (TODO do template) —
-troque por um `signingConfig` próprio antes de distribuir. APK universal de release fica
-em torno de 50 MB (todas as ABIs); `--split-per-abi` derruba para ~20 MB cada.
+troque por um `signingConfig` próprio antes de distribuir. APK universal fica ~50 MB
+(todas as ABIs); `--split-per-abi` derruba para ~20 MB cada.
 
 ### Ícone do app
 

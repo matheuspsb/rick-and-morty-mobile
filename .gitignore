@@ -56,6 +56,9 @@ CLAUDE.md
 .env.*
 !.env.example
 
+# Config local por máquina (IP da LAN); use o .example como base
+config/local-device.json
+
 # FVM
 .fvm/
 
